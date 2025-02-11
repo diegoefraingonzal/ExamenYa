@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Formulario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form (ngSubmit)="agregarPelicula()">
+    <ion-item>
+      <ion-label position="floating">Nombre de la Película</ion-label>
+      <ion-input [(ngModel)]="pelicula.nombre" name="nombre" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Año de Lanzamiento</ion-label>
+      <ion-input type="number" [(ngModel)]="pelicula.anio" name="anio" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Nombre del Productor</ion-label>
+      <ion-input [(ngModel)]="pelicula.productor" name="productor" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Casa Productora</ion-label>
+      <ion-input [(ngModel)]="pelicula.casa" name="casa" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Protagonista</ion-label>
+      <ion-input [(ngModel)]="pelicula.protagonista" name="protagonista" required></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" type="submit">Agregar Película</ion-button>
+  </form>
+
+  <ion-list>
+    <ion-item *ngFor="let peli of peliculas">
+      <ion-label>
+        <h2>{{ peli.nombre }} ({{ peli.anio }})</h2>
+        <p>Productor: {{ peli.productor }}</p>
+        <p>Casa Productora: {{ peli.casa }}</p>
+        <p>Protagonista: {{ peli.protagonista }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
